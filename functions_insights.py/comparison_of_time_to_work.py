@@ -28,5 +28,5 @@ def percent_better_than_median_or_whorse(value, database):
       pct = (data_array < value).sum() / len(data_array) * 100
       return f"{value} é um tempo pior que {pct:.2f}% da base."        
 
-print(percent_better_than_median_or_whorse(36, database['tempo_medio_deslocamento']))
 # %%
+print(percent_better_than_median_or_whorse(36, database['tempo_medio_deslocamento']))
