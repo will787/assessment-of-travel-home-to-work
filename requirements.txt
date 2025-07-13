@@ -5,6 +5,9 @@ scikit-learn
 matplotlib
 seaborn
 statsmodels
-plotly
+plotly.express
 scipy
 requests
+geopandas
+shapely
+nbformat>=4.2.0
