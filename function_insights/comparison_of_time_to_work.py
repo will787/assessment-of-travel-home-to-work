@@ -30,3 +30,5 @@ def percent_better_than_median_or_whorse(value, database):
 
 # %%
 print(percent_better_than_median_or_whorse(36, database['tempo_medio_deslocamento']))
+
+# %%
