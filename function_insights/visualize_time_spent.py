@@ -17,19 +17,20 @@ siglas_uf = [
     'RJ', 'RN', 'RS', 'RO', 'RR', 'SC', 'SP', 'SE', 'TO'
 ]
 
-def plot_state(value):
-    pio.renderers.default = 'vscode'
-    if value not in siglas_uf:
-        print(f"State {value} is not available in the dataset.")
+def plot_state(value: str):
+    state_uf_upper = value.upper()
+    if state_uf_upper not in siglas_uf:
+        print(f"State {value.upper()} is not available in the dataset.")
         return
-    
-    select_uf(value)
-    print(value.upper())
-    state_data = database[database['sigla_uf'] == value]
+
+    # This function now ensures the file exists and returns its path.
+    geojson_path = select_uf(state_uf_upper)
+
+    print(f"Plotting data for {state_uf_upper}")
+    state_data = database[database['sigla_uf'] == state_uf_upper]
     state_data = state_data[['id_municipio', 'id_municipio_nome', 'tempo_medio_deslocamento']] 
 
-    select_uf(value)
-    with open(f'../geo/json_states/municipios_{value.lower()}.geojson', 'r', encoding='utf-8') as f:
+    with open(geojson_path, 'r', encoding='utf-8') as f:
         geojson_state = json.load(f)
 
     fig = px.choropleth(
@@ -41,7 +42,7 @@ def plot_state(value):
         featureidkey='properties.CD_MUN',
         projection='mercator',
         hover_name='id_municipio_nome',
-        title=f'Average Commute Time in {value} State',
+        title=f'Average Commute Time in {state_uf_upper} State',
     )
     fig.update_geos(fitbounds="locations", visible=False)
     fig.show()
