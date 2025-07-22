@@ -3,7 +3,9 @@
 This repository contains code and resources for analyzing travel patterns from home to work.
 You can see states in plotted graph, analyzing the time spend travel from home to work.
 
-### Here, you can see: 
+Using data of website: 'Base dos dados (basedosdados.org)'.
+
+### Here, you can see (functions): 
 
 * Analyze travel time
 
@@ -33,3 +35,18 @@ You can see states in plotted graph, analyzing the time spend travel from home t
   * After you made the donwload, you will unzip, to put on the path './geo'
 
   * Obs: We only use the 'BR_Municipios_2024.shp' only it. He wil used in malhas_br.py code. 
+
+* You can look the graphs in ./analytics/insights_eda.ipynb
+
+* You can use also the function **comparison_of_time_to_work.py** have one example how you can use in the insights_eda.ipynb; you will able to call the function for there.
+
+
+## Conclusions
+
+* Soo after made all this things, you can kidding with tools, to visualize the plot of your state, comparing municipes, what is better, what have lass time spend from home to work. 
+
+* Maybe you can travel, or change for new municipe based on this analyses, but remeber this data is this 2010.
+
+Look one example, of how stay the graph: 
+
+![Example de plot](geo/example.png)

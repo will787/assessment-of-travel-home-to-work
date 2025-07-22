@@ -10,12 +10,12 @@ from extract_data_cloud import database
 
 # %% 
 
-def percent_better_than_median_or_whorse(value, database):
+def percent_better_than_median_or_whorse(value, database, uf):
     """
-    (menor é melhor) - calcula seu tempo comparado ao da base.
-    coloca o percentual de pessoas que tem tempo melhor ou pior que o seu.
-    Se o tempo for maior que a mediana, calcula o percentual de pessoas com tempo melhor
-    Se o tempo for menor que a mediana, calcula o percentual de pessoas com tempo pior
+    (lower is better) - calculates your time compared to the baseline.
+    Enter the percentage of people who have better or worse time than you.
+    If the time is greater than the median, calculate the percentage of people with better time.
+    If the time is less than the median, calculate the percentage of people with worse time.
     """
     median = database.median()
 
@@ -29,6 +29,4 @@ def percent_better_than_median_or_whorse(value, database):
       return f"{value} é um tempo pior que {pct:.2f}% da base."        
 
 # %%
-print(percent_better_than_median_or_whorse(36, database['tempo_medio_deslocamento']))
-
-# %%
+#print(percent_better_than_median_or_whorse(36, database['tempo_medio_deslocamento']))
