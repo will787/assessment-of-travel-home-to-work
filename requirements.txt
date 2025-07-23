@@ -11,3 +11,6 @@ requests
 geopandas
 shapely
 nbformat>=4.2.0
+
+
+# pegar onde está os centros das cidades, que tem a maior ocupacao de empregos.
