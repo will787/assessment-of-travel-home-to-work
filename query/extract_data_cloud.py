@@ -1,4 +1,5 @@
 import basedosdados as bd
+import sqlite3
 
 billing_id = "transporte-dados"
 
@@ -19,3 +20,10 @@ LEFT JOIN (SELECT DISTINCT id_municipio,nome  FROM `basedosdados.br_bd_diretorio
 """
 
 database = bd.read_sql(query = query, billing_project_id = billing_id)
+
+#saving data into the sql
+
+with sqlite3.connect("dados.db") as con:
+    database.to_sql('dados', con, if_exists='replace', index=False)
+
+print("Data saved !")
